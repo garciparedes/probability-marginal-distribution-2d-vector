@@ -10,7 +10,6 @@
 \begin{document}
 
 	\maketitle
-  \thispagestyle{empty}
 
 %-----------------------------
 %	TEXT
@@ -21,21 +20,35 @@
 
     \paragraph{}
     Sea $(X, Y)$ un vector bidimiensional de variables aleatorias. Se presuponen conocidas la función de densidad  $f_X(x)$ (o de probabiblidad $P(X = x)$ en caso de ser discreta) de la variable $X$. También se asume como conocida la distribución de la función de densidad de variable $Y$ condicionada por cualquier valor de $X$, es decir, $f_Y(y \mid X = x)$ (o la de probabilidad $P(Y = y \mid X = x)$ en caso de ser discreta).
-    
-  \begin{align}
-    P(A) = \sum_iP(A \mid B_i)P(B_i)
-  \end{align}
 
-  \begin{align}
-    \text{X e Y son Discretas:}&\\
-    P(Y=y) &= \sum_iP(Y = y \mid X = x_i)P(X = x_i)\\
-    \text{X e Y son Continuas:}&\\
-    f_{Y}(y) &=\int_{-\infty}^{+\infty}f_{Y}(y | X = x)f_X(x) dx \\
-    \text{X es Discreta e Y Continua:}&\\
-    f_{Y}(y) &= \sum_if_{Y}(y \mid X = x_i)P(X = x_i)\\
-    \text{X es Continua e Y Discreta:}&\\
-    P(Y = y) &=\int_{-\infty}^{+\infty}P( Y =y | X = x)f_X(x) dx \\
-  \end{align}
+    \paragraph{}
+    Lo que se pretende obtener a partir de dichas funciones de distribución es la ley de probabilidad que sigue la variable $Y$, es decir, su función de densidad $f_Y(y)$ (o de probabiblidad $P(Y = y)$ en caso de ser discreta).
+
+    \paragraph{}
+    Para obtener dicho valor, se hará uso de la \emph{ley de probabibilidades totales}, que indica que si un suceso $A$ que se da sobre un espacio muestral $\omega$ puede particionarse en $n$ partes determinadas por $B=\{B_1, ..., B_i, ..., B_n \}$ y se conoce la distribución de probabilidades tanto de estas ($P(B_i)  \ \forall i \in \{1,...,n\}$), como de las de $A$ condicionada a ellas ($P(A \mid B_i) \ \forall i \in \{1,...,n\}$), entonces se puede conocer la probabilidad del suceso $A$ tal y como se indica en la ecuación \eqref{eq:_law_of_total_probabilities}.
+
+    \begin{align}
+    \label{eq:_law_of_total_probabilities}
+      P(A) = \sum_{i=1}^nP(A \mid B_i)P(B_i)
+    \end{align}
+
+    \paragraph{}
+    La idea de la ecuación \eqref{eq:_law_of_total_probabilities} se puede extender al uso de variables, tanto discretas como continuas. Por tanto en las ecuaciones \eqref{eq:marginal_1}, \eqref{eq:marginal_2}, \eqref{eq:marginal_3} y \eqref{eq:marginal_3} para las cuatro posibles combinaciones de variables continuas y discretas.
+
+    \begin{align}
+      \text{X e Y son Discretas:}&\\
+    \label{eq:marginal_1}
+      P(Y=y) &= \sum_iP(Y = y \mid X = x_i)P(X = x_i)\\
+      \text{X e Y son Continuas:}&\\
+    \label{eq:marginal_2}
+      f_{Y}(y) &=\int_{-\infty}^{+\infty}f_{Y}(y | X = x)f_X(x) dx \\
+      \text{X es Discreta e Y Continua:}&\\
+    \label{eq:marginal_3}
+      f_{Y}(y) &= \sum_if_{Y}(y \mid X = x_i)P(X = x_i)\\
+      \text{X es Continua e Y Discreta:}&\\
+    \label{eq:marginal_4}
+      P(Y = y) &=\int_{-\infty}^{+\infty}P( Y =y | X = x)f_X(x) dx \\
+    \end{align}
 %-----------------------------
 %	Bibliographic references
 %-----------------------------
